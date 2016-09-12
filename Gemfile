@@ -11,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'bundler-audit'
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
