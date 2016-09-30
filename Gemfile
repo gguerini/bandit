@@ -9,12 +9,14 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
 
 group :development, :test do
   gem 'bundler-audit'
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -26,10 +28,12 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'poltergeist'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
   gem 'shoulda-matchers'
+  gem 'turnip'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
