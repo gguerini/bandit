@@ -1,0 +1,14 @@
+language: ruby
+sudo: false
+cache:
+  bundler: true
+  directories:
+  - tmp/cache/assets/test/sprockets
+rvm: 2.3.1
+addons:
+  postgresql: "9.4"
+before_script:
+  - bundle exec rake db:{create,schema:load}
+script:
+  - bundle exec rspec --profile 10 spec
+  - bundle exec bundle-audit update && bundle exec bundle-audit check
