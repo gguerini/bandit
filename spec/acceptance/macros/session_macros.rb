@@ -34,6 +34,7 @@ module SessionMacros
     within "form#new_user" do
       fill_in "First name", with: "John"
       fill_in "Last name", with: "Doe"
+      fill_in "Username", with: "johndoe"
       fill_in "Email", with: "johndoe@example.com"
       fill_in "Password", with: "p@ssw0rd"
       fill_in "Password confirmation", with: "p@ssw0rd"
