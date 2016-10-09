@@ -23,5 +23,17 @@ RSpec.describe User, type: :model do
       it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
       it { should validate_uniqueness_of(:username).ignoring_case_sensitivity }
     end
+
+    describe "#to_param" do
+      subject { FactoryGirl.build(:user, username: "foobar") }
+
+      its(:to_param) { should eq("foobar") }
+    end
+
+    describe "#full_name" do
+      subject { FactoryGirl.build(:user, first_name: "Mo", last_name: "Farah") }
+
+      its(:full_name) { should eq("Mo Farah") }
+    end
   end
 end

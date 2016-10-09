@@ -3,6 +3,10 @@ module SessionMacros
     sign_in
   end
 
+  step "I am not signed in" do
+    Capybara.reset_sessions!
+  end
+
   step "I sign out" do
     sign_out
   end

@@ -1,0 +1,7 @@
+<h1><%= user.full_name %>!</h1>
+
+<% if owner? %>
+  <%= link_to "Edit Profile", "#" %>
+<% end %>
+
+<%= render "shared/authentication_links" %>
