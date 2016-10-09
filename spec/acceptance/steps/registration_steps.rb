@@ -10,10 +10,12 @@ module RegistrationSteps
   end
 
   step "I should have a new account" do
-    expect(page).to have_link("Sign out")
-    expect(page).to have_content("Welcome!")
+    @user = User.find_by(email: "johndoe@example.com")
+    expect(@user).to be_present
+  end
 
-    user = User.find_by(email: "johndoe@example.com")
-    expect(user).to be_present
+  step "I should be redirected to my dashboard page" do
+    expect(page).to have_link("Sign out")
+    expect(current_path).to eq(user_dashboard_path(username: @user))
   end
 end
