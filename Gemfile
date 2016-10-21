@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'bundler-audit'
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
@@ -27,7 +28,6 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'poltergeist'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-collection_matchers'

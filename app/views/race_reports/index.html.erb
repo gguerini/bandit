@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Race Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Location</th>
+      <th>Race date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @race_reports.each do |race_report| %>
+      <tr>
+        <td><%= race_report.name %></td>
+        <td><%= race_report.distance %></td>
+        <td><%= race_report.location %></td>
+        <td><%= race_report.race_date %></td>
+        <td><%= link_to 'Show', race_report %></td>
+        <td><%= link_to 'Edit', edit_race_report_path(race_report) %></td>
+        <td><%= link_to 'Destroy', race_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Race Report', new_race_report_path %>

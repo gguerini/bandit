@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  resources :sections
+  resources :race_reports
+
   get "/:username", to: "dashboard#index", as: :user_dashboard
 end

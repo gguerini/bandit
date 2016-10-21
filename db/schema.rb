@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005221531) do
+ActiveRecord::Schema.define(version: 20161010233003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "race_reports", force: :cascade do |t|
+    t.integer  "user_id",                 null: false
+    t.string   "name",                    null: false
+    t.string   "distance",   default: "", null: false
+    t.string   "location",   default: "", null: false
+    t.string   "website",    default: "", null: false
+    t.jsonb    "goals",      default: {}, null: false
+    t.integer  "status",                  null: false
+    t.date     "race_date",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["user_id"], name: "index_race_reports_on_user_id", using: :btree
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer  "race_report_id"
+    t.string   "title",                      null: false
+    t.text     "description",                null: false
+    t.integer  "order",          default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["race_report_id"], name: "index_sections_on_race_report_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                          null: false
@@ -34,4 +58,6 @@ ActiveRecord::Schema.define(version: 20161005221531) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "race_reports", "users"
+  add_foreign_key "sections", "race_reports"
 end

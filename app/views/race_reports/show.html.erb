@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1>Race Report: <%= @race_report.name %></h1>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @race_report.distance %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @race_report.location %>
+</p>
+
+<p>
+  <strong>Race date:</strong>
+  <%= @race_report.race_date %>
+</p>
+
+<% if @race_report.website.present? %>
+<p>
+  <strong>Website:</strong>
+  <%= @race_report.website %>
+</p>
+<% end %>
+
+<p>
+  <table id="race-report-goals">
+    <tr>
+      <th>Goal</th>
+      <th>Achieved?</th>
+    </tr>
+    <% if @race_report.goal_a.present? %>
+      <% goal_achieved = @race_report.goal_a_completed == "1" %>
+      <tr>
+        <td><%= @race_report.goal_a %></td>
+        <td class="<%= goal_achieved ? "achieved" : "not_achieved" %>"><%= goal_achieved ? "Yes" : "No" %></td>
+      </tr>
+    <% end %>
+    <% if @race_report.goal_b.present? %>
+      <% goal_achieved = @race_report.goal_b_completed == "1" %>
+      <tr>
+        <td><%= @race_report.goal_b %></td>
+        <td class="<%= goal_achieved ? "achieved" : "not_achieved" %>"><%= goal_achieved ? "Yes" : "No" %></td>
+      </tr>
+    <% end %>
+    <% if @race_report.goal_c.present? %>
+      <% goal_achieved = @race_report.goal_c_completed == "1" %>
+      <tr>
+        <td><%= @race_report.goal_c %></td>
+        <td class="<%= goal_achieved ? "achieved" : "not_achieved" %>"><%= goal_achieved ? "Yes" : "No" %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+
+<% @race_report.sections.each do |section| %>
+  <div>
+    <h2><%= section.title %></h2>
+    <p><%= section.description %></p>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_race_report_path(@race_report) %> |
+<%= link_to 'Back', race_reports_path %>
