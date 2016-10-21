@@ -1,0 +1,99 @@
+<%= form_for(race_report) do |f| %>
+  <% if race_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(race_report.errors.count, "error") %> prohibited this race_report from being saved:</h2>
+
+      <ul>
+      <% race_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :distance %>
+    <%= f.text_field :distance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goal_a %>
+    <%= f.text_field :goal_a %>
+    <%= f.check_box :goal_a_completed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goal_b %>
+    <%= f.text_field :goal_b %>
+    <%= f.check_box :goal_b_completed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :goal_c %>
+    <%= f.text_field :goal_c %>
+    <%= f.check_box :goal_c_completed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :race_date %>
+    <%= f.date_select :race_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+
+  <div id="race-report-sections">
+    <%= f.fields_for :sections do |ff| %>
+      <div class="section-item">
+        <%= ff.hidden_field :id %>
+        <%= ff.hidden_field :order %>
+        <%= ff.hidden_field :_destroy %>
+
+        <div class="field">
+          <%= ff.label :title %>
+          <%= ff.text_field :title, required: true, list: "names" %>
+        </div>
+
+        <div class="field">
+          <%= ff.label :description %>
+          <%= ff.text_area :description, required: true %>
+        </div>
+
+        <div class="actions">
+          <span class="section-item-remove">✖</span>
+          <span class="section-item-handle">☰</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <p>
+    <a href="#" id="addNewSection">Add new section</a>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <datalist id="names">
+    <option value="Pre race">
+    <option value="Training">
+    <option value="Equipment">
+    <option value="Race day">
+  </datalist>
+
+<% end %>
+

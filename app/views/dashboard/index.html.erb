@@ -1,7 +1,12 @@
 <h1><%= user.full_name %>!</h1>
 
 <% if owner? %>
-  <%= link_to "Edit Profile", "#" %>
+  <p>
+    <%= link_to "Edit Profile", "#" %>
+  </p>
+  <p>
+    <%= link_to "Race report", race_reports_path %>
+  </p>
 <% end %>
 
 <%= render "shared/authentication_links" %>

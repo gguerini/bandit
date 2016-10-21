@@ -46,6 +46,7 @@ Dir[Rails.root.join('spec', 'acceptance', 'macros', '**', '*.rb')].each { |f| re
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include SessionMacros, type: :feature
 

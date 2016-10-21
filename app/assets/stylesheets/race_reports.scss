@@ -1,0 +1,67 @@
+#race-report-sections {
+  width: 500px;
+
+  .section-item {
+    border: 1px solid #EFEFEF;
+    margin: 10px 0;
+    padding: 5px;
+
+    .actions {
+      text-align: right;
+    }
+  }
+
+  .section-item-handle {
+    margin-right: 10px;
+    font: bold 20px Sans-Serif;
+    color: #5F9EDF;
+    display: inline-block;
+    cursor: move;
+    cursor: -webkit-grabbing;
+  }
+
+  .section-item-remove {
+    cursor: pointer;
+    margin-right: 10px;
+    font: bold 20px Sans-Serif;
+    color: #5F9EDF;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .section-item-chosen {
+    opacity: .75;
+    background-color: #EFEFEF;
+  }
+
+  input {
+    width: 99%;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+}
+
+#race-report-goals {
+  border: 1px solid #EFEFEF;
+  width: 350px;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    background-color: #EFEFEF;
+    padding: 2px;
+  }
+
+  td.achieved {
+    color: green;
+  }
+
+  td.not_achieved {
+    color: red;
+  }
+}
