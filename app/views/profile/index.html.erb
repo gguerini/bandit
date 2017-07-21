@@ -1,0 +1,45 @@
+<h1><%= user.full_name %>!</h1>
+
+<% if owner? %>
+  <p>
+    <%= link_to "Edit Profile", "#" %>
+  </p>
+  <p>
+    <%= link_to "Add Race Report", new_race_report_path %>
+  </p>
+<% end %>
+
+<h1>Race Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Distance</th>
+      <th>Location</th>
+      <th>Race date</th>
+      <% if owner? %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @race_reports.each do |race_report| %>
+      <tr>
+        <td><%= link_to race_report.name, race_report_profile_path(id: user, race_id: race_report) %></td>
+        <td><%= race_report.distance %></td>
+        <td><%= race_report.location %></td>
+        <td><%= race_report.race_date %></td>
+        <% if owner? %>
+          <td><%= link_to 'Edit', edit_race_report_path(race_report) %></td>
+          <td><%= link_to 'Destroy', race_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= render "shared/authentication_links" %>

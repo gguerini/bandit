@@ -14,8 +14,8 @@ module RegistrationSteps
     expect(@user).to be_present
   end
 
-  step "I should be redirected to my dashboard page" do
+  step "I should be redirected to my dashboard" do
     expect(page).to have_link("Sign out")
-    expect(current_path).to eq(user_dashboard_path(username: @user))
+    expect(current_path).to eq(dashboard_path)
   end
 end
