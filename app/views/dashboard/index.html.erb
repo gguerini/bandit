@@ -1,12 +1,6 @@
-<h1><%= user.full_name %>!</h1>
+<h1><%= current_user.full_name %>!</h1>
 
-<% if owner? %>
-  <p>
-    <%= link_to "Edit Profile", "#" %>
-  </p>
-  <p>
-    <%= link_to "Race report", race_reports_path %>
-  </p>
-<% end %>
+<%= link_to "Edit Profile", "#" %>
+<%= link_to "Add Race Report", new_race_report_path %>
 
 <%= render "shared/authentication_links" %>

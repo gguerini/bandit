@@ -56,7 +56,7 @@ class RaceReportsController < ApplicationController
   private
 
   def set_race_report
-    @race_report = current_user.race_reports.find(params[:id])
+    @race_report = current_user.race_reports.friendly.find(params[:id])
   end
 
   def race_report_params

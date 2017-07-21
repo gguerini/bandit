@@ -1,18 +1,16 @@
 Feature: User Dashboard
-  In order to see a user's profile and race reports
-  As a user
-  I want to be able to visit their dashboard
+  In order to manage my account
+  I want to be able to visit my dashboard
 
-  Scenario: Viewing my own dashboard
-    When I visit my dashboard
-    Then I should see and be able to edit my profile
-
-  Scenario: Viewing someone else's profile
+  Background:
     Given I am signed in
-    When I visit Jesse Owens dashboard
-    Then I should see their profile but not be able to edit their profile
 
-  Scenario: Viewing someone's profile when I'm not signed in
+  Scenario: Viewing my dashboard
+    When I visit the dashboard
+    Then I should see my details
+    And I should be able to edit my profile and to add a new race report
+
+  Scenario: Visiting the dashboard when I'm not signed in
     Given I am not signed in
-    When I visit Jesse Owens dashboard
-    Then I should see their profile but not be able to edit their profile
+    When I visit the dashboard
+    Then I should be prompt to sign in
