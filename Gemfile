@@ -37,7 +37,7 @@ gem 'turbolinks', '~> 5'
 gem 'jquery-rails'
 
 gem 'devise'
-gem 'friendly_id', '~> 5.1.0'
+gem 'friendly_id', '~> 5.2.0'
 
 group :development, :test do
   gem 'bundler-audit'
@@ -46,7 +46,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
