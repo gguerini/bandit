@@ -36,6 +36,7 @@ gem 'turbolinks', '~> 5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'bootstrap', '~> 4.0.0.beta'
 gem 'devise'
 gem 'friendly_id', '~> 5.2.0'
 

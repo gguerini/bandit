@@ -31,7 +31,9 @@ module SessionMacros
   end
 
   def sign_out
-    click_link "Sign out"
+    within "nav" do
+      click_link "Sign out"
+    end
   end
 
   def fill_in_registration_form

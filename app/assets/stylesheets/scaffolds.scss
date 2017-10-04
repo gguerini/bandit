@@ -1,56 +1,18 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
+@import "bootstrap";
+
+.custom-alert-notice, .custom-alert-success {
+  @extend .alert;
+  @extend .alert-success;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
+.custom-alert-error {
+  @extend .alert;
+  @extend .alert-danger;
 }
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
-
-th {
-  padding-bottom: 5px;
-}
-
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-#notice {
-  color: green;
+.custom-alert-alert {
+  @extend .alert;
+  @extend .alert-warning;
 }
 
 .field_with_errors {
@@ -82,8 +44,4 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-label {
-  display: block;
 }
